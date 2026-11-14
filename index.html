@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mimi Bazar — Mode, sacs, chaussures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap">
+<style>
+:root{--void:#000;--bone:#fff;--ash:#9a9a9a;--mist:#bdbdbd;--iris:#ff2d8a;--spark:#ffb3d9;--teal:#c026d3;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);background:#000}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:#000;color:#fff;font-family:'Inter',system-ui,sans-serif;font-weight:200;font-size:18px;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:0;background:var(--iris);z-index:50}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:18px 24px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;font-weight:400;font-size:18px;letter-spacing:-.02em}
+.logo svg{width:22px;height:22px}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+nav li a{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--ash);position:relative;transition:color .3s}
+nav li a::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:var(--spark);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+nav li a:hover{color:#fff}nav li a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--iris);color:#fff;border:0;border-radius:24px;padding:14px 22px;font:600 14px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:.025em;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.btn span{position:relative;z-index:1}
+.btn::before{content:"";position:absolute;inset:0;background:#fff;transform:translateY(101%);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover{color:#000}
+.btn i{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid currentColor;position:relative;z-index:1;transition:transform .5s}
+.btn:hover i{transform:rotate(180deg) scale(1.2)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--spark);outline-offset:4px}
+.ghost{background:none;border:0;color:var(--ash);font:400 14px 'Inter';text-transform:uppercase;letter-spacing:.025em;cursor:pointer;transition:color .3s,letter-spacing .3s}
+.ghost:hover{color:#fff;letter-spacing:.12em}
+.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative}
+#cv{position:absolute;right:0;top:0;width:60%;height:100%;z-index:0}
+.hero .txt{position:relative;z-index:2;padding-top:90px}
+.lbl{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.025em;color:var(--spark);margin:0 0 18px}
+h1,h2,h3{font-weight:400;margin:0}
+h1{font-size:clamp(52px,9vw,113px);line-height:.95;letter-spacing:-.04em}
+h2{font-size:clamp(40px,6vw,78px);line-height:1;letter-spacing:-.04em}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.w b{display:inline-block;font-weight:400;transform:translateY(110%) rotate(6deg);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.in .w b{transform:none}
+.hero p.sub{max-width:480px;margin:30px 0 36px;color:var(--mist)}
+.cta-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.rv{opacity:0;transform:translateY(40px);filter:blur(8px);transition:all 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none;filter:none}
+.marq{overflow:hidden;white-space:nowrap;padding:36px 0;border-block:1px solid #1a1a1a}
+.marq div{display:inline-block;animation:mq 28s linear infinite;font-size:clamp(36px,5vw,64px);letter-spacing:-.04em;font-weight:400}
+.marq:hover div{animation-play-state:paused}
+.marq em{font-style:normal;color:var(--iris);margin:0 .5em;display:inline-block;animation:spin 6s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+section{padding:120px 0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+.cats{margin-top:60px}
+.cat{display:flex;justify-content:space-between;align-items:baseline;padding:24px 0;border-top:1px solid #1a1a1a;position:relative;transition:opacity .4s,padding .5s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.cats:hover .cat{opacity:.25}.cats .cat:hover{opacity:1;padding-left:36px}
+.cat h3{font-size:clamp(40px,7vw,96px);letter-spacing:-.04em;line-height:1;transition:color .4s}
+.cat:hover h3{color:var(--spark)}
+.cat small{font-size:14px;color:var(--ash);font-weight:400;display:flex;align-items:center;gap:12px}
+.cat small::after{content:"";width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:12px solid var(--iris);transform:scale(0) rotate(-90deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.cat:hover small::after{transform:scale(1) rotate(0)}
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:60px}
+.p{position:relative;cursor:pointer}
+.art{aspect-ratio:3/4;border-radius:24px;border:1px solid #222;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;transition:transform .6s cubic-bezier(.2,.8,.2,1),border-color .4s;transform-style:preserve-3d}
+.p:hover .art{border-color:var(--c)}
+.art svg{width:46%;fill:none;stroke:var(--c);stroke-width:1.5;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.p:hover .art svg{transform:scale(1.25) rotate(-8deg)}
+.art .add{position:absolute;bottom:18px;left:50%;transform:translate(-50%,120%);opacity:0;transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.p:hover .add,.p:focus-within .add{transform:translate(-50%,0);opacity:1}
+.p h3{font-size:24px;letter-spacing:-.02em;margin-top:18px}
+.p span.pr{color:var(--spark);font-weight:400;font-size:15px}
+.p small{display:block;color:var(--ash);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:60px}
+.stats h3{font-size:clamp(48px,7vw,96px);letter-spacing:-.04em}
+.stats p{color:var(--ash);margin:6px 0 0}
+.fin{text-align:left;padding-bottom:60px}
+.fin h2{max-width:900px}
+footer{padding:36px 0 60px;color:var(--ash);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+#cur{position:fixed;left:0;top:0;width:18px;height:18px;z-index:60;pointer-events:none;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:16px solid var(--iris);transition:scale .3s,border-bottom-color .3s;mix-blend-mode:screen}
+#cur.h{scale:2.4;border-bottom-color:var(--spark)}
+#toast{position:fixed;left:50%;bottom:calc(30px + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:#fff;color:#000;padding:12px 22px;border-radius:24px;font-weight:600;font-size:14px;z-index:70;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+#toast.s{transform:translate(-50%,0)}
+@media(max-width:860px){.hero,.split{grid-template-columns:1fr}.hero{padding-top:40px}#cv{width:100%;opacity:.55}nav ul{display:none}.prods{grid-template-columns:repeat(2,1fr);gap:18px}.stats{grid-template-columns:1fr}section{padding:84px 0}}
+#sp{position:fixed;inset:0;background:#000;z-index:100;display:flex;align-items:center;justify-content:center;text-align:center;transition:transform 1s cubic-bezier(.76,0,.24,1);cursor:pointer}
+#sp.o{transform:translateY(-100%)}#sp svg{animation:spin 2.4s linear infinite}
+#sp h2{margin-top:18px;animation:up 1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(40px)}}
+.fl{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:45;background:var(--iris);padding:14px 22px;border-radius:24px;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.025em;animation:pulse 2s infinite;transition:scale .3s}
+.fl:hover{scale:1.08}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,45,138,.6)}100%{box-shadow:0 0 0 22px rgba(255,45,138,0)}}
+.tst{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:60px}
+.t{transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.tst:hover .t{opacity:.3}.tst .t:hover{opacity:1;transform:translateY(-10px)}
+.st{color:var(--spark);letter-spacing:.2em;margin-bottom:18px}
+.t q{display:block;font-size:24px;line-height:1.25;letter-spacing:-.02em;quotes:none;color:#fff}
+.t p{color:var(--iris);font-weight:600;font-size:14px;margin-top:18px;text-transform:uppercase;letter-spacing:.025em}
+@media(max-width:860px){.tst{grid-template-columns:1fr}}
+@media(hover:none){#cur{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}.rv,.w b{opacity:1;transform:none;filter:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div><div id="cur"></div><div id="sp"><div><svg viewBox="0 0 22 22" width="40"><path d="M11 2 20 19H2z" fill="#ff2d8a"/></svg><h2>Bienvenue chez<br>Mimi Bazar</h2></div></div><a class="fl wa" target="_blank" rel="noopener">WhatsApp</a><div id="toast">Ajouté — finalisez sur WhatsApp</div>
+<nav>
+  <a class="logo" href="#top"><svg viewBox="0 0 22 22"><path d="M11 2 20 19H2z" fill="#ff2d8a"/><path d="M11 2 20 19H11z" fill="#c026d3"/></svg>Mimi Bazar</a>
+  <ul><li><a href="#univers">Univers</a></li><li><a href="#nouveautes">Nouveautés</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a class="btn" id="order" target="_blank" rel="noopener"><span>Commander (<b id="n" style="font-weight:600">0</b>)</span></a>
+</nav>
+
+<header class="wrap hero" id="top">
+  <canvas id="cv"></canvas>
+  <div class="txt">
+    <p class="lbl rv">Bienvenue chez Mimi Bazar</p>
+    <h1 id="h1"><span class="w"><b>Portez</b></span> <span class="w"><b style="transition-delay:.1s">ce</b></span> <span class="w"><b style="transition-delay:.2s">qui</b></span> <span class="w"><b style="transition-delay:.3s">vous</b></span> <span class="w"><b style="transition-delay:.4s">ressemble.</b></span></h1>
+    <p class="sub rv" style="transition-delay:.6s">Vêtements, sacs, chaussures et accessoires choisis pour durer. Livraison rapide, retours simples.</p>
+    <div class="cta-row rv" style="transition-delay:.75s">
+      <a class="btn mag wa" target="_blank" rel="noopener"><span>Commander sur WhatsApp</span><i></i></a>
+      <a class="ghost" href="#univers">Voir les univers</a>
+    </div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div id="mq"></div></div>
+
+<section id="univers"><div class="wrap">
+  <div class="split">
+    <h2 class="rv">Quatre univers, un seul dressing.</h2>
+    <p class="rv" style="color:var(--mist);max-width:480px">Survolez un univers pour le mettre en avant, cliquez pour découvrir sa sélection.</p>
+  </div>
+  <div class="cats">
+    <a class="cat rv" href="#nouveautes"><h3>Vêtements</h3><small>124 pièces</small></a>
+    <a class="cat rv" href="#nouveautes"><h3>Sacs</h3><small>48 modèles</small></a>
+    <a class="cat rv" href="#nouveautes"><h3>Chaussures</h3><small>86 paires</small></a>
+    <a class="cat rv" href="#nouveautes"><h3>Accessoires</h3><small>62 articles</small></a>
+  </div>
+</div></section>
+
+<section id="nouveautes"><div class="wrap">
+  <p class="lbl rv">Nouveautés</p>
+  <h2 class="rv">Arrivées cette semaine.</h2>
+  <div class="prods" id="prods"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="split"><h2 class="rv">Pensé pour ceux qui commandent sans hésiter.</h2><p class="rv" style="color:var(--mist);max-width:480px">Chaque article est vérifié à la main avant l'envoi. Si la taille ne va pas, l'échange est gratuit.</p></div>
+  <div class="stats">
+    <div class="rv"><h3 data-n="48">0</h3><p>heures de livraison en ville</p></div>
+    <div class="rv"><h3 data-n="30">0</h3><p>jours pour changer d'avis</p></div>
+    <div class="rv"><h3 data-n="12000">0</h3><p>clients satisfaits</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="lbl rv">Elles en parlent</p>
+  <h2 class="rv">Des clientes qui reviennent.</h2>
+  <div class="tst">
+    <div class="t rv"><div class="st">★★★★★</div><q>Le sac est encore plus beau en vrai. Livré vite, emballage soigné, je recommande les yeux fermés.</q><p>Grâce M.</p></div>
+    <div class="t rv"><div class="st">★★★★★</div><q>J'ai commandé des chaussures par WhatsApp, Mimi m'a répondu tout de suite. Pointure parfaite.</q><p>Prisca N.</p></div>
+    <div class="t rv"><div class="st">★★★★★</div><q>Des prix honnêtes et des pièces qui tiennent. C'est ma boutique préférée maintenant.</q><p>Dorcas K.</p></div>
+  </div>
+</div></section>
+
+<section class="fin" id="contact"><div class="wrap">
+  <h2 class="rv">Votre prochaine pièce préférée vous attend.</h2>
+  <div class="cta-row rv" style="margin-top:36px"><a class="btn mag wa" target="_blank" rel="noopener"><span>Écrire à Mimi sur WhatsApp</span><i></i></a><a class="ghost" href="#top">Retour en haut</a></div>
+  <footer style="margin-top:96px"><span>© 2026 Mimi Bazar</span><span>WhatsApp : +242 06 904 5765</span></footer>
+</div></section>
+
+<script>
+const $=s=>document.querySelector(s);
+// Marquee
+$('#mq').innerHTML=('Vêtements<em>▲</em>Sacs<em>▲</em>Chaussures<em>▲</em>Accessoires<em>▲</em>').repeat(4);
+// Products
+const P=[['Veste oversize','Vêtements','25 000 FCFA','#ff2d8a','<path d="M8 4l-6 5 3 5 3-2v14h16V12l3 2 3-5-6-5-4 3h-8z"/>'],
+['Sac cabas cuir','Sacs','35 000 FCFA','#ffb3d9','<path d="M6 12h20l2 16H4zM11 12V8a5 5 0 0110 0v4"/>'],
+['Baskets urbaines','Chaussures','30 000 FCFA','#c026d3','<path d="M2 20c6 0 8-6 10-8l4 4c3 0 8 1 14 3v3H2z"/>'],
+['Casquette brodée','Accessoires','10 000 FCFA','#ffd1e8','<path d="M4 20c0-8 6-12 12-12s12 4 12 12zM2 22h28"/>']];
+$('#prods').innerHTML=P.map(p=>`<div class="p rv" style="--c:${p[3]}"><div class="art"><svg viewBox="0 0 32 32">${p[4]}</svg><button class="btn add" data-add><span>Ajouter</span></button></div><h3>${p[0]}</h3><small>${p[1]}</small><span class="pr">${p[2]}</span></div>`).join('');
+const WA='242069045765',items=[];let tt;const wa=t=>'https://wa.me/'+WA+'?text='+encodeURIComponent(t),hi='Bonjour Mimi Bazar, je souhaite passer commande.';document.querySelectorAll('.wa').forEach(a=>a.href=wa(hi));$('#order').href=wa(hi);document.addEventListener('click',e=>{const b=e.target.closest('[data-add]');if(b){const p=b.closest('.p');items.push(p.querySelector('h3').textContent+' ('+p.querySelector('.pr').textContent+')');$('#n').textContent=items.length;$('#order').href=wa('Bonjour Mimi Bazar, je souhaite commander :\n- '+items.join('\n- '));const t=$('#toast');t.classList.add('s');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('s'),1600)}});
+// Reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.querySelector&&e.target.querySelector('[data-n]'))0}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=el.style.transitionDelay||((i%4)*80)+'ms';io.observe(el)});
+addEventListener('load',()=>setTimeout(()=>{$('#sp').classList.add('o');$('#h1').classList.add('in');document.querySelectorAll('.hero .rv').forEach(e=>e.classList.add('in'))},2300));
+$('#sp').addEventListener('click',()=>$('#sp').classList.add('o'));
+// Counters
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const n=+e.target.dataset.n,t0=performance.now();(function f(t){const k=Math.min((t-t0)/1600,1),v=Math.round(n*(1-Math.pow(1-k,4)));e.target.textContent=v.toLocaleString('fr-FR');if(k<1)requestAnimationFrame(f)})(t0)}),{threshold:.6});
+document.querySelectorAll('[data-n]').forEach(e=>co.observe(e));
+// Scroll: progress + parallax
+const bar=$('#bar'),cv=$('#cv');
+addEventListener('scroll',()=>{const h=document.documentElement,s=h.scrollTop/(h.scrollHeight-h.clientHeight);bar.style.width=s*100+'%';cv.style.transform=`translateY(${h.scrollTop*.25}px)`},{passive:true});
+// Cursor + magnetic + tilt
+const cur=$('#cur');addEventListener('mousemove',e=>{cur.style.transform=`translate(${e.clientX-9}px,${e.clientY-9}px)`});
+document.querySelectorAll('a,button,.p').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('h'));el.addEventListener('mouseleave',()=>cur.classList.remove('h'))});
+document.querySelectorAll('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+document.querySelectorAll('.art').forEach(a=>{a.addEventListener('mousemove',e=>{const r=a.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;a.style.transform=`perspective(700px) rotateY(${x*14}deg) rotateX(${-y*14}deg)`});a.addEventListener('mouseleave',()=>a.style.transform='')});
+// Constellation: triangles shaped as a shopping bag, repelled by mouse
+(function(){const c=cv,x=c.getContext('2d'),cols=['#ff2d8a','#ffb3d9','#c026d3','#ffd1e8','#ff8fc7'];let W,H,pts=[],m={x:-999,y:-999};
+function shape(){const t=Math.random(),u=Math.random();// bag body or handle
+if(t<.8){return[(u-.5)*.5,(Math.random()-.3)*.6]}const a=Math.PI*Math.random();return[Math.cos(a)*.17,-.3-Math.sin(a)*.2]}
+function init(){const d=devicePixelRatio||1;W=c.clientWidth;H=c.clientHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);const n=W<700?700:1500;pts=[];for(let i=0;i<n;i++){const s=shape(),amb=Math.random()<.18;const hx=amb?Math.random()*W:W/2+s[0]*Math.min(W,H)*1.5,hy=amb?Math.random()*H:H/2+s[1]*Math.min(W,H)*1.5;pts.push({hx,hy,x:Math.random()*W,y:Math.random()*H,r:amb?2:Math.random()*2.4+1.2,c:cols[i%5],a:Math.random()*6.28,s:(Math.random()-.5)*.02,o:amb?.3:.9})}}
+function tick(t){x.clearRect(0,0,W,H);const sc=1+Math.sin(t/1800)*.015;for(const p of pts){const dx=p.x-m.x,dy=p.y-m.y,d=Math.hypot(dx,dy);if(d<110){const f=(110-d)/110*6;p.x+=dx/d*f;p.y+=dy/d*f}p.x+=(p.hx+Math.sin(t/900+p.hy)*3-p.x)*.05;p.y+=(p.hy+Math.cos(t/1100+p.hx)*3-p.y)*.05;p.a+=p.s;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.scale(sc,sc);x.strokeStyle=p.c;x.globalAlpha=p.o;x.lineWidth=1.2;x.beginPath();x.moveTo(0,-p.r);x.lineTo(p.r,p.r);x.lineTo(-p.r,p.r);x.closePath();x.stroke();x.restore()}requestAnimationFrame(tick)}
+addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});
+addEventListener('resize',init);init();requestAnimationFrame(tick)})();
+</script>
+</body>
+</html>
